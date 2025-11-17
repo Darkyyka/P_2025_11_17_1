@@ -35,8 +35,6 @@ namespace P_2025_11_17_2
                 return;
             }
 
-            double d = b * b - 4 * a * c;
-
             try
             {
                 if (a <= 0)
