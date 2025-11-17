@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace P_2025_11_17_2
 {
@@ -10,14 +6,34 @@ namespace P_2025_11_17_2
     {
         static void Main(string[] args)
         {
-            Console.Write("Add meg az a-t: ");
-            double a = double.Parse(Console.ReadLine());
+            double a = 0, b = 0, c = 0;
 
-            Console.Write("Add meg a b-t: ");
-            double b = double.Parse(Console.ReadLine());
+            try
+            {
+                Console.Write("Add meg az a-t: ");
+                a = double.Parse(Console.ReadLine());
+                if (a < 0) throw new Exception("A szám nem lehet negatív!");
 
-            Console.Write("Add meg a c-t: ");
-            double c = double.Parse(Console.ReadLine());
+                Console.Write("Add meg a b-t: ");
+                b = double.Parse(Console.ReadLine());
+                if (b < 0) throw new Exception("A szám nem lehet negatív!");
+
+                Console.Write("Add meg a c-t: ");
+                c = double.Parse(Console.ReadLine());
+                if (c < 0) throw new Exception("A szám nem lehet negatív!");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Hibás formátum! Csak számot adhatsz meg.");
+                Console.ReadKey();
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hiba: " + ex.Message);
+                Console.ReadKey();
+                return;
+            }
 
             double d = b * b - 4 * a * c;
 
